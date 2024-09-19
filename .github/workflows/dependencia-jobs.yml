@@ -1,9 +1,11 @@
-name: Workflow com depend de jobs
+name: Workflow com Depend de Jobs
 
 on:
   push:
     branches:
       - main
+  pull_request: 
+    branches: [ main ]
 
 jobs:
   job1:
@@ -22,6 +24,7 @@ jobs:
 
   job2:
     name: Job 2
+    needs: job1
     runs-on: ubuntu-latest
     
     steps:
